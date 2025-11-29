@@ -2,9 +2,9 @@ name: CI & Deploy to aws
 
 on:
   push:
-    branches: [ master, development ]
+    branches: [ portfolio/master, portfolio/development ]
   pull_request:
-    branches: [ master, development ]
+    branches: [ portfolio/master, portfolio/development ]
   workflow_dispatch:
     inputs:
       branch:
