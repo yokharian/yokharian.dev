@@ -34,14 +34,6 @@ jobs:
       - name: Run every test suite
         run: npm run test
 
-      - name: Upload coverage reports
-        uses: codecov/codecov-action@v3
-        with:
-          file: ./coverage/lcov.info
-          flags: unittests
-          name: codecov-umbrella
-          fail_ci_if_error: false
-
   deploy:
     needs: test
     if: github.event_name == 'push' || github.event_name == 'workflow_dispatch'
@@ -91,3 +83,19 @@ jobs:
 
           echo "Deploying Amplify app $AMPLIFY_APP_ID (branch: $branch)."
           npx ampx pipeline-deploy --branch "$branch" --app-id "$AMPLIFY_APP_ID"
+
+      - name: Trigger Amplify frontend build (main only)
+        env:
+          BRANCH_NAME: ${{ env.DEPLOY_BRANCH }}
+          AMPLIFY_WEBHOOK_URL: ${{ secrets.AMPLIFY_WEBHOOK_URL }}
+        run: |
+          if [ "$BRANCH_NAME" = "main" ]; then
+            if [ -z "$AMPLIFY_WEBHOOK_URL" ]; then
+              echo "Missing AMPLIFY_WEBHOOK_URL secret." >&2
+              exit 1
+            fi
+            echo "Triggering Amplify frontend build via webhook for branch $BRANCH_NAME..."
+            curl -sS -X POST -d '{}' "$AMPLIFY_WEBHOOK_URL" -H "Content-Type:application/json"
+          else
+            echo "Skipping frontend deploy; branch is $BRANCH_NAME (only runs on main)."
+          fi
