@@ -49,7 +49,7 @@ const iconPaths = {
 };
 ---
 
-<div class={`${styles.bg} rounded-2xl p-8 text-center group hover-lift hover-glow transition-all duration-300`}>
+<div class={`${styles.bg} rounded-2xl p-8 text-center group hover-lift hover-glow transition-all duration-300 h-full flex flex-col`}>
   <div class={`w-16 h-16 ${styles.iconBg} rounded-full flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300`}>
     <svg class="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 24 24">
       <path d={iconPaths[icon]} />
@@ -58,9 +58,9 @@ const iconPaths = {
   
   <h3 class="text-xl font-bold text-gray-900 mb-2">{title}</h3>
   
-  <p class="text-gray-600 mb-4">{description}</p>
+  <p class="text-gray-600 mb-4 flex-grow">{description}</p>
   
-  <div class="flex flex-wrap justify-center gap-2">
+  <div class="flex flex-wrap justify-center gap-2 mt-auto">
     {tags.map((tag) => (
       <span class={`px-3 py-1 ${styles.tagBg} ${styles.tagText} rounded-full text-sm font-medium`}>
         {tag}

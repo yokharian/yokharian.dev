@@ -161,7 +161,7 @@ const certifications: Certification[] = certificationsData.names ? Object.values
             </div>
         </section>
 
-        <section id="professional-focus" class="py-16 bg-gray-50" aria-labelledby="professional-focus-title" role="region">
+        <section id="professional-focus" class="py-16 bg-gray-50 w-screen relative left-1/2 right-1/2 -ml-[50vw] -mr-[50vw]" aria-labelledby="professional-focus-title" role="region">
             <div class="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 text-center">
                 <h2 id="professional-focus-title"
                     class="text-3xl md:text-4xl font-bold text-gray-900 mb-6"
@@ -190,9 +190,9 @@ const certifications: Certification[] = certificationsData.names ? Object.values
                 </div>
 
                 <!-- Grid layout matching Real Life Projects style - 3 columns desktop, 2 mobile -->
-                <div class="grid grid-cols-2 lg:grid-cols-3 gap-6" role="list">
+                <div class="grid grid-cols-2 lg:grid-cols-3 gap-6 items-stretch" role="list">
                   {latestPosts.map((post, index) => (
-                          <div class={`project-stagger project-stagger-${(index % 8) + 1}`}>
+                          <div class={`project-stagger project-stagger-${(index % 8) + 1} h-full`}>
                               <BlogCard post={post} currentLocale={currentLocale}/>
                           </div>
                   ))}
@@ -286,11 +286,11 @@ const certifications: Certification[] = certificationsData.names ? Object.values
                       {t.experience.subtitle}
                     </p>
                 </div>
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto items-stretch">
                     {experienceCards.map((card, index) => {
                       const cardData = t.experience[card.key as keyof typeof t.experience] as { title: string; description: string; tags: string[] };
                       return (
-                        <div class={`stagger-animation stagger-${index + 1}`}>
+                        <div class={`stagger-animation stagger-${index + 1} h-full`}>
                           <ExperienceCard
                             title={cardData.title}
                             description={cardData.description}

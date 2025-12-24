@@ -50,16 +50,16 @@ function formatMetadata(date: Date | string | undefined, employer?: string): str
 ---
 
 <article
-        class="group relative rounded-2xl bg-white shadow-lg border border-gray-100 overflow-hidden transition-all duration-300 hover:shadow-xl hover:-translate-y-1 focus-within:shadow-xl focus-within:-translate-y-1"
+        class="group relative rounded-2xl bg-white shadow-lg border border-gray-100 overflow-hidden transition-all duration-300 hover:shadow-xl hover:-translate-y-1 focus-within:shadow-xl focus-within:-translate-y-1 h-full flex flex-col"
         role="listitem" data-blog-card>
     <a href={postUrl}
-       class="absolute inset-0 rounded-2xl focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-500 focus-visible:ring-offset-2 focus-visible:ring-offset-white"
+       class="absolute inset-0 rounded-2xl focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-500 focus-visible:ring-offset-2 focus-visible:ring-offset-white z-10"
        aria-label={`Read blog post: ${post.data.title}`}>
         <span class="sr-only">{post.data.title}</span>
     </a>
 
     <!-- Image with rounded top corners -->
-    <div class="aspect-video overflow-hidden rounded-t-2xl">
+    <div class="aspect-video overflow-hidden rounded-t-2xl flex-shrink-0">
         <Image
                 src={heroImage}
                 alt={post.data.title}
@@ -74,28 +74,28 @@ function formatMetadata(date: Date | string | undefined, employer?: string): str
     </div>
 
     <!-- Card content with padding -->
-    <div class="p-6 space-y-4">
+    <div class="p-6 flex flex-col flex-grow">
         <!-- Company & Date metadata -->
       {formatMetadata(post.data.pubDate, post.data.employer) && (
-              <div class="text-sm text-gray-500 font-medium transition-all duration-300" data-blog-metadata>
+              <div class="text-sm text-gray-500 font-medium transition-all duration-300 mb-2" data-blog-metadata>
                 {formatMetadata(post.data.pubDate, post.data.employer)}
               </div>
       )}
 
         <!-- Project title -->
-        <h3 class="text-xl font-bold text-gray-900 line-clamp-2 group-hover:text-brand-600 transition-all duration-300"
+        <h3 class="text-xl font-bold text-gray-900 line-clamp-2 group-hover:text-brand-600 transition-all duration-300 mb-2"
             data-blog-title>
           {post.data.title}
         </h3>
 
         <!-- Description -->
-        <p class="text-gray-600 line-clamp-3 leading-relaxed transition-all duration-300" data-blog-description>
+        <p class="text-gray-600 line-clamp-3 leading-relaxed transition-all duration-300 flex-grow" data-blog-description>
           {post.data.description}
         </p>
 
         <!-- Tags with Dynamic Colors -->
       {tags.length > 0 && (
-              <div class="flex flex-wrap gap-2 transition-all duration-300" aria-label="Tags">
+              <div class="flex flex-wrap gap-2 transition-all duration-300 mt-4" aria-label="Tags">
                 {tags.slice(0, 3).map((tag: any) => {
                   const tagName = typeof tag === 'string' ? tag : tag.name || tag.toString();
                   const tagColor = typeof tag === 'object' && tag.color ? tag.color : undefined;
