@@ -189,8 +189,8 @@ const certifications: Certification[] = certificationsData.names ? Object.values
                     </p>
                 </div>
 
-                <!-- Grid layout matching Real Life Projects style - 3 columns desktop, 2 mobile -->
-                <div class="grid grid-cols-2 lg:grid-cols-3 gap-6 items-stretch" role="list">
+                <!-- Grid layout: 1 column mobile, 2 columns tablet, 3 columns desktop -->
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 items-stretch" role="list">
                   {latestPosts.map((post, index) => (
                           <div class={`project-stagger project-stagger-${(index % 8) + 1} h-full`}>
                               <BlogCard post={post} currentLocale={currentLocale}/>
