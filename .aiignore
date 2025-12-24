@@ -12,16 +12,5 @@ build/
 out/
 node_modules/
 
-# taskmaster
-# ALLOW
-!.taskmaster/
-!.taskmaster/docs/
-# DENY
-.taskmaster/generated/
-.taskmaster/tasks/
-.taskmaster/templates/
-.taskmaster/config.json
-.taskmaster/state.json
-
 .astro/
 .idea/

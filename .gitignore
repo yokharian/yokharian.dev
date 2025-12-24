@@ -274,16 +274,6 @@ amplify_outputs.json
 amplify_outputs.json.bak
 cdk.out/
 
-# Taskmaster files
-# ALLOW
-!/.taskmaster/
-!/.taskmaster/docs/
-# DENY
-/.aiassistant/rules/taskmaster.md
-/.cursor/rules/taskmaster/dev_workflow.mdc
-/.cursor/rules/taskmaster/taskmaster.mdc
-/.cursor/rules/cursor_rules.mdc
-/.cursor/rules/self_improve.mdc
 /.cursor/environment.json
 /.cursor/mcp.json
 /.junie/mcp/mcp.json
