@@ -1,0 +1,60 @@
+---
+/**
+ * Reusable Tag/Badge component with dynamic colors
+ * Supports HSLA color strings from blog post frontmatter
+ * 
+ * @example
+ * <Tag name="AWS Lambda" color="hsla(180, 50%, 40%, 0.3)" />
+ * <Tag name="Python" /> <!-- Uses default brand color -->
+ */
+
+export interface Props {
+  name: string;
+  color?: string;
+  size?: 'sm' | 'md' | 'lg';
+  class?: string;
+}
+
+const { name, color, size = 'md', class: className = '' } = Astro.props;
+
+// Parse HSLA color to get a readable text color
+function getTextColor(bgColor?: string): string {
+  if (!bgColor) return 'text-brand-700';
+  
+  // For HSLA colors with low alpha, darken for text
+  if (bgColor.includes('hsla')) {
+    // Extract the base color and increase saturation/darkness for text
+    const match = bgColor.match(/hsla\((\d+),\s*(\d+)%,\s*(\d+)%,\s*[\d.]+\)/);
+    if (match) {
+      const [, hue, sat, light] = match;
+      // Return a darker version for text readability
+      return `color: hsl(${hue}, ${Math.min(parseInt(sat) + 20, 100)}%, ${Math.max(parseInt(light) - 25, 20)}%)`;
+    }
+  }
+  
+  return 'color: inherit';
+}
+
+// Size variants
+const sizeClasses = {
+  sm: 'px-2 py-0.5 text-xs',
+  md: 'px-3 py-1 text-sm',
+  lg: 'px-4 py-1.5 text-base'
+};
+
+const textColorStyle = getTextColor(color);
+const hasCustomColor = !!color;
+---
+
+<span
+  class:list={[
+    'inline-flex items-center rounded-full font-medium transition-colors duration-200',
+    sizeClasses[size],
+    !hasCustomColor && 'bg-brand-100 text-brand-700 hover:bg-brand-200',
+    className
+  ]}
+  style={hasCustomColor ? `background-color: ${color}; ${textColorStyle}` : undefined}
+>
+  {name}
+</span>
+

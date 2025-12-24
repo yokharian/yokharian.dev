@@ -11,6 +11,8 @@ export interface Props {
   image?: string;
   canonical?: string;
   lang?: string;
+  /** Optional image to preload for LCP optimization */
+  preloadImage?: string;
 }
 
 const { 
@@ -18,8 +20,12 @@ const {
   description,
   image,
   canonical,
-  lang
+  lang,
+  preloadImage
 } = Astro.props;
+
+// Determine if this is the homepage to decide on preload
+const isHomePage = Astro.url.pathname.match(/^\/[a-z]{2}\/?$/) !== null;
 
 // Get site data
 const siteData = getSiteData();
@@ -51,8 +57,10 @@ const pageImage = image || siteData.seo.defaultImage;
     <meta name="author" content={siteData.author}>
     <link rel="canonical" href={canonicalUrl}>
     
-    <!-- Critical Resource Preloading -->
-    <link rel="preload" href="/assets/images/183728692.webp" as="image" type="image/webp">
+    <!-- Critical Resource Preloading - Dynamic based on page -->
+    {(preloadImage || isHomePage) && (
+      <link rel="preload" href={preloadImage || '/assets/images/183728692.webp'} as="image" type="image/webp" />
+    )}
     <link rel="preload" href="/assets/css/styles.css" as="style">
     
     <!-- Favicon and App Icons -->

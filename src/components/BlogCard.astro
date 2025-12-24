@@ -1,5 +1,6 @@
 ---
 import {Image} from 'astro:assets';
+import Tag from './Tag.astro';
 
 export interface Props {
   post: {
@@ -92,14 +93,14 @@ function formatMetadata(date: Date | string | undefined, employer?: string): str
           {post.data.description}
         </p>
 
-        <!-- Tags -->
+        <!-- Tags with Dynamic Colors -->
       {tags.length > 0 && (
               <div class="flex flex-wrap gap-2 transition-all duration-300" aria-label="Tags">
-                {tags.slice(0, 3).map((tag: any) => (
-                        <span class="inline-block rounded-full bg-gray-100 px-3 py-1 text-xs font-medium text-gray-700">
-            {typeof tag === 'string' ? tag : tag.name || tag.toString()}
-          </span>
-                ))}
+                {tags.slice(0, 3).map((tag: any) => {
+                  const tagName = typeof tag === 'string' ? tag : tag.name || tag.toString();
+                  const tagColor = typeof tag === 'object' && tag.color ? tag.color : undefined;
+                  return <Tag name={tagName} color={tagColor} size="sm" />;
+                })}
               </div>
       )}
     </div>

@@ -1,6 +1,7 @@
 ---
 import Layout from '../../../layouts/Layout.astro';
 import JsonLD from '../../../components/JsonLD.astro';
+import Tag from '../../../components/Tag.astro';
 import {getCollection} from 'astro:content';
 import {getI18nData, getSiteData} from "../../../data";
 
@@ -98,6 +99,7 @@ const baseSlug = match ? match[1] : post.slug;
         title={`${post.data.title} | ${siteData.title}`}
         description={post.data.description}
         lang={currentLocale}
+        preloadImage={post.data.thumbnail}
 >
     <slot name="head">
         <JsonLD type="Article" data={{
@@ -126,21 +128,30 @@ const baseSlug = match ? match[1] : post.slug;
     </slot>
 
     <article class="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
-        <!-- Hero Section -->
-        <header class="relative mb-16">
+        <!-- Hero Section with Dynamic Tags -->
+        <header class="relative mb-16 rounded-3xl overflow-hidden">
           {post.data.thumbnail && (
                   <div class="absolute inset-0 -z-10">
-                      <div class="absolute inset-0 bg-gradient-to-r from-black/60 to-black/40"></div>
+                      <div class="absolute inset-0 bg-gradient-to-r from-black/70 to-black/50 z-10"></div>
                       <img
                               src={post.data.thumbnail}
                               alt={post.data.title}
-                              class="w-full h-96 object-cover rounded-3xl"
+                              class="w-full h-full object-cover"
                       />
                   </div>
           )}
 
-            <div class="relative py-20 px-8 md:px-12">
-                <div class="mb-6">
+            <div class="relative py-20 px-8 md:px-12 min-h-[24rem]">
+                <!-- Dynamic Tags in Upper Left Corner -->
+                {post.data.tags && post.data.tags.length > 0 && (
+                    <div class="absolute top-6 left-6 md:left-8 flex flex-wrap gap-2 max-w-[60%]">
+                        {post.data.tags.slice(0, 4).map((tag: { name: string; color: string }) => (
+                            <Tag name={tag.name} color={tag.color} size="sm" />
+                        ))}
+                    </div>
+                )}
+
+                <div class="mb-6 mt-12">
                     <a
                             href={`/${currentLocale}/blog`}
                             class="inline-flex items-center text-sm text-white/80 hover:text-white font-medium transition-colors duration-200"
@@ -188,19 +199,15 @@ const baseSlug = match ? match[1] : post.slug;
         </header>
         <!-- Main Content -->
         <div class="prose prose-lg max-w-none">
-            <!-- Tags Section -->
+            <!-- Tags Section with Dynamic Colors -->
           {post.data.tags && post.data.tags.length > 0 && (
-                  <div class="mb-8 p-6 bg-gray-50 rounded-2xl">
+                  <div class="mb-8 p-6 bg-gray-50 rounded-2xl not-prose">
                       <h3 class="text-lg font-semibold text-gray-900 mb-4">
                         {currentLocale === 'en' ? 'Technologies Used' : 'Tecnologías Utilizadas'}
                       </h3>
                       <div class="flex flex-wrap gap-3">
-                        {post.data.tags.map((tag: any) => (
-                                <span
-                                        class="inline-flex items-center rounded-full bg-brand-100 px-4 py-2 text-sm font-medium text-brand-700 hover:bg-brand-200 transition-colors duration-200"
-                                >
-                {tag.name}
-              </span>
+                        {post.data.tags.map((tag: { name: string; color: string }) => (
+                            <Tag name={tag.name} color={tag.color} size="md" />
                         ))}
                       </div>
                   </div>

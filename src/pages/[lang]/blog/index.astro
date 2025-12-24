@@ -1,5 +1,6 @@
 ---
 import Layout from '../../../layouts/Layout.astro';
+import Tag from '../../../components/Tag.astro';
 import {getCollection} from 'astro:content';
 import {getI18nData, getSiteData} from "../../../data";
 
@@ -134,13 +135,8 @@ const regularPosts = posts.filter(post => post.data.featured !== true);
                                       
                                       {post.data.tags && post.data.tags.length > 0 && (
                                               <div class="mt-2 flex flex-wrap gap-1">
-                                                {post.data.tags.slice(0, 4).map((tag: any) => (
-                                                        <span
-                                                                class="inline-block rounded px-2 py-1 text-xs font-medium"
-                                                                style={`background-color: ${tag.color}; color: ${tag.color.replace('hsla(', 'hsla(').replace(/,\s*[0-9.]+\)$/, ', 1)')}`}
-                                                        >
-                          {tag.name}
-                        </span>
+                                                {post.data.tags.slice(0, 4).map((tag: { name: string; color: string }) => (
+                                                    <Tag name={tag.name} color={tag.color} size="sm" />
                                                 ))}
                                               </div>
                                       )}

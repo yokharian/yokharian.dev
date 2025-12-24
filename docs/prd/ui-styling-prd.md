@@ -56,22 +56,31 @@ This PRD outlines the requirements for implementing comprehensive visual styling
   - Description text with line clamping
   - Smooth hover effects and transitions
 
-**1.4 Experience/Real Life Projects Section**
-- **Layout**: Similar grid structure to Featured Work
-- **Enhanced Card Features**:
-  - Date and category badges with absolute positioning
-  - Color-coded tags (`bg-green-100 text-green-800`, etc.)
-  - Improved spacing and typography hierarchy
-  - Enhanced hover states and focus management
+**1.4 Professional Services Section**
+- **Layout**: Responsive grid (`grid-cols-1 md:grid-cols-2 lg:grid-cols-3`)
+- **Card Design**: Gradient background cards with centered content
+  - Three distinct color variants: blue, green, purple
+  - Gradient backgrounds (`bg-gradient-to-br from-{color}-50 to-{color}-100`)
+  - Circular icon containers with matching solid colors
+  - Centered text content with title, description, and tags
+- **Component Architecture**: 
+  - Reusable `ExperienceCard.astro` component
+  - Data-driven from `i18n.json` for multilingual support
+  - Supports three icon types: check, star, globe
+  - Color-coded tags matching card variant
+- **Animation**: Staggered entrance animations and hover lift effects
 
 **1.5 Certifications Section**
-- **Layout**: Responsive grid (`grid-cols-2 md:grid-cols-3 lg:grid-cols-5`)
-- **Background**: Light gray section background (`bg-gray-50`)
+- **Layout**: Two-column grid with text content on left and badges on right
+  - Left column: Section heading, description, and "Official" tag badge
+  - Right column: Responsive grid (`grid-cols-2 md:grid-cols-3`) for certification badges
 - **Card Design**:
-  - Centered alignment for certification badges
-  - Proper image sizing (`w-32 h-32`)
-  - Clean typography for certification names
-  - Issuer and date information display
+  - Certification badge images (`w-32 h-32 md:w-36 md:h-36`)
+  - Rounded corners (`rounded-2xl`) with overflow visible
+  - Hover animations: scale and rotate effects
+  - Links to credential verification URLs
+- **Data Source**: `certifications.json` with multilingual support
+- **Structured Data**: JSON-LD ItemList schema for SEO
 
 **1.6 Footer**
 - **Layout**: Simple horizontal layout with social icons
@@ -83,17 +92,16 @@ This PRD outlines the requirements for implementing comprehensive visual styling
 
 **2.1 Blog Index Page**
 - **Header Section**:
-  - Clean page title with proper typography
-  - Descriptive subtitle for context
-- **Featured Posts Section**:
-  - Two-column grid for featured content
-  - Enhanced card design with hover effects
-  - Proper image handling and aspect ratios
-  - Tag display with dynamic colors
-- **Regular Posts Section**:
-  - List layout with thumbnail images
-  - Consistent spacing and typography
-  - Hover states and smooth transitions
+  - Centered header with glassmorphism effect (`bg-white/90 backdrop-blur-sm`)
+  - Large title (`text-5xl md:text-6xl`) and descriptive subtitle
+  - Rounded container with shadow (`rounded-3xl shadow-lg`)
+- **Posts Section**:
+  - Single-column list layout for all posts (no featured/regular distinction)
+  - Card design with thumbnail on left, content on right
+  - Hover states with lift effect and shadow transitions
+  - Tag display using reusable `Tag.astro` component with dynamic HSLA colors
+- **Filtering**: Posts filtered by `displayBlogPages` configuration in `site.json`
+- **Responsive Design**: Adapts gracefully from mobile to desktop
 
 **2.2 Individual Blog Post Page**
 - **Hero/Banner Section**:
@@ -134,18 +142,22 @@ This PRD outlines the requirements for implementing comprehensive visual styling
 
 #### 3.2 Component Architecture
 - **Reusable Components**:
-  - ProjectCard component with enhanced styling
-  - Tag/Badge component for dynamic colors
-  - Language toggle component
-  - Social icon components
+  - `BlogCard.astro` - Card component for blog post previews with image, metadata, and tags
+  - `Tag.astro` - Dynamic tag/badge component supporting HSLA colors from frontmatter
+    - Props: `name`, `color` (optional HSLA string), `size` (sm/md/lg)
+    - Automatically calculates readable text color from background
+  - `ExperienceCard.astro` - Service card with gradient backgrounds and icons
+    - Props: `title`, `description`, `tags`, `variant` (blue/green/purple), `icon`
+  - Language toggle integrated into Header
 - **Layout Components**:
-  - Enhanced Header with proper navigation
-  - Improved Footer with social links
-  - Responsive grid containers
-- **Blog-Specific Components**:
-  - PostBanner component for hero sections
-  - ContentRenderer for markdown content
-  - RelatedPosts component
+  - `Header.astro` - Sticky header with navigation, CTA button, and language switcher
+  - `Footer.astro` - Simple footer with social icon links
+  - `Layout.astro` - Base layout with dynamic preload optimization
+- **Blog-Specific Features**:
+  - Dynamic tags in hero banner (upper left corner)
+  - Language toggle for translated posts
+  - Related posts grid section
+  - Lucidchart iframe embedding support
 
 #### 3.3 Responsive Design
 - **Breakpoints**:
@@ -197,11 +209,17 @@ This PRD outlines the requirements for implementing comprehensive visual styling
 
 #### 5.1 Image Optimization
 - **Responsive Images**:
-  - Proper srcset implementation
-  - WebP format support
-  - Lazy loading for below-fold content
+  - Astro `Image` component with automatic optimization
+  - WebP format conversion via `format="webp"` attribute
+  - Lazy loading for below-fold content (`loading="lazy"`)
+  - Quality optimization (`quality={85-90}`)
+- **Dynamic Preloading**:
+  - Conditional preload based on page type (homepage vs blog)
+  - `preloadImage` prop in Layout for page-specific LCP optimization
+  - Profile image preloaded only on homepage
+  - Blog post thumbnail preloaded on individual post pages
 - **Asset Management**:
-  - Proper caching headers
+  - Proper caching headers configured in `_headers`
   - CDN integration ready
 
 #### 5.2 CSS Optimization
@@ -268,40 +286,6 @@ This PRD outlines the requirements for implementing comprehensive visual styling
   - All content fields properly utilized
   - Consistent styling across all content types
   - Proper error handling for missing data
-
-### Implementation Timeline (2 Weeks - 80 Hours Total)
-
-#### Phase 1: Foundation and Main Page (Week 1 - 40 hours)
-**Days 1-2 (16 hours): Foundation Setup**
-- Tailwind CSS configuration and custom theme (4 hours)
-- Base component architecture setup (6 hours)
-- Header and Footer component enhancements (6 hours)
-
-**Days 3-5 (24 hours): Main Page Implementation**
-- Hero section implementation (8 hours)
-- Featured work section styling (6 hours)
-- Experience section enhancements (5 hours)
-- Certifications section styling (5 hours)
-
-#### Phase 2: Blog Styling and Polish (Week 2 - 40 hours)
-**Days 1-3 (24 hours): Blog Implementation**
-- Blog index page styling (8 hours)
-- Individual blog post page styling (10 hours)
-- Content rendering enhancements (3 hours)
-- Language toggle functionality (3 hours)
-
-**Days 4-5 (16 hours): Polish and Optimization**
-- Animation and interaction refinements (6 hours)
-- Performance optimization (4 hours)
-- Cross-browser testing and fixes (4 hours)
-- Final integration testing and bug fixes (2 hours)
-
-#### Hourly Breakdown Summary:
-- **Foundation & Setup**: 16 hours (20%)
-- **Main Page Development**: 24 hours (30%)
-- **Blog Development**: 24 hours (30%)
-- **Polish & Testing**: 16 hours (20%)
-- **Total**: 80 hours over 10 working days
 
 ### Dependencies and Constraints
 
