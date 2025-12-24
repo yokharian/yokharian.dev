@@ -89,13 +89,9 @@ jobs:
           BRANCH_NAME: ${{ env.DEPLOY_BRANCH }}
           AMPLIFY_WEBHOOK_URL: ${{ secrets.AMPLIFY_WEBHOOK_URL }}
         run: |
-          if [ "$BRANCH_NAME" = "main" ]; then
-            if [ -z "$AMPLIFY_WEBHOOK_URL" ]; then
-              echo "Missing AMPLIFY_WEBHOOK_URL secret." >&2
-              exit 1
-            fi
-            echo "Triggering Amplify frontend build via webhook for branch $BRANCH_NAME..."
-            curl -sS -X POST -d '{}' "$AMPLIFY_WEBHOOK_URL" -H "Content-Type:application/json"
-          else
-            echo "Skipping frontend deploy; branch is $BRANCH_NAME (only runs on main)."
+          if [ -z "$AMPLIFY_WEBHOOK_URL" ]; then
+            echo "Missing AMPLIFY_WEBHOOK_URL secret." >&2
+            exit 1
           fi
+          echo "Triggering Amplify frontend build via webhook for branch $BRANCH_NAME..."
+          curl -sS -X POST -d '{}' "$AMPLIFY_WEBHOOK_URL" -H "Content-Type:application/json"
