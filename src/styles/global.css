@@ -108,12 +108,12 @@ html[data-theme="dark"] {
   html[data-theme="light"] #hero,
   html[data-theme="light"] #recent-posts,
   html[data-theme="light"] #featured,
-  html[data-theme="light"] #main-content,
+  html[data-theme="light"] #about,
   html:not([data-theme]) #hero,
   html:not([data-theme]) #featured,
-  html:not([data-theme]) #main-content,
+  html:not([data-theme]) #about,
   html:not([data-theme]) #recent-posts {
-    background: #fdfdfd;
+    background: #fdfdfd8a;
   }
 
   a,
