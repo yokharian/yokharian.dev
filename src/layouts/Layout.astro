@@ -2,6 +2,7 @@
 import { ViewTransitions } from "astro:transitions";
 import { SITE } from "@/config";
 import "@/styles/global.css";
+import "@/styles/custom.css";
 import Analytics from "@/components/Analytics.astro";
 
 const googleSiteVerification = import.meta.env.PUBLIC_GOOGLE_SITE_VERIFICATION;
@@ -131,19 +132,8 @@ const structuredData = {
 
     <script is:inline src="/toggle-theme.js"></script>
     
-    <!-- Domain-based markdown redirect -->
-    <script is:inline>
-      // Check if we're on steipete.md domain
-      const hostname = window.location.hostname;
-      if ((hostname === 'steipete.md' || hostname === 'www.steipete.md') && !window.location.pathname.endsWith('.md')) {
-        // Redirect to the .md version of the current page
-        const mdPath = window.location.pathname === '/' ? '/index.md' : window.location.pathname + '.md';
-        window.location.replace(mdPath + window.location.search + window.location.hash);
-      }
-    </script>
-    
     <!-- Twitter Widget Script -->
-    <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+    <script async src="https://platform.x.com/widgets.js" charset="utf-8"></script>
   </head>
   <body>
     <slot />

@@ -82,7 +82,7 @@ const { content } = Astro.props;
     // Only load the Twitter widgets script if we found Twitter embeds
     if (foundTwitterEmbeds) {
       const script = document.createElement("script");
-      script.src = "https://platform.twitter.com/widgets.js";
+      script.src = "https://platform.x.com/widgets.js";
       script.async = true;
       document.head.appendChild(script);
     }

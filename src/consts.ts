@@ -31,12 +31,12 @@ interface Site {
 
 // Site configuration
 export const SITE: Site = {
-  website: "https://steipete.me/",
-  author: "Peter Steinberger",
-  profile: "https://steipete.me/about",
+  website: "https://yokharian.dev/",
+  author: "Sofia Escobedo",
+  profile: "https://yokharian.dev/about",
   desc: "AI-powered tools from Swift roots to web frontiers. Every commit lands on GitHub for you to fork & remix.",
-  title: "Peter Steinberger",
-  ogImage: "peter-avatar.jpg",
+  title: "Sofia Escobedo",
+  ogImage: "yokharian-avatar.webp",
   lightAndDarkMode: true,
   postPerIndex: 10,
   postPerPage: 10,
@@ -46,11 +46,11 @@ export const SITE: Site = {
   editPost: {
     enabled: true,
     text: "Edit on GitHub",
-    url: "https://github.com/steipete/steipete.me/edit/main/",
+    url: "https://github.com/yokharian/yokharian.dev/edit/main/",
   },
   dynamicOgImage: true,
   lang: "en",
-  timezone: "America/Los_Angeles",
+  timezone: "America/Mexico_City",
 };
 
 export const SITE_TITLE = SITE.title;
@@ -71,15 +71,15 @@ export const NAV_LINKS: SocialLink[] = [
 // Social media links
 export const SOCIAL_LINKS: SocialLink[] = [
   {
-    href: "https://github.com/steipete",
+    href: "https://github.com/yokharian",
     label: "GitHub",
   },
   {
-    href: "https://twitter.com/steipete",
+    href: "https://x.com/yokharian",
     label: "Twitter",
   },
   {
-    href: "https://bsky.app/profile/steipete.me",
+    href: "https://bsky.app/profile/yokharian.dev",
     label: "BlueSky",
   },
   {

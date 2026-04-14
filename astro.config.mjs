@@ -99,10 +99,10 @@ export default defineConfig({
     react(),
     AstroPWA({
       registerType: "autoUpdate",
-      includeAssets: ["favicon.ico", "peter-avatar.jpg"],
+      includeAssets: ["favicon.ico", "yokharian-avatar.webp"],
       manifest: {
-        name: "Peter Steinberger",
-        short_name: "steipete",
+        name: "Sofia Escobedo",
+        short_name: "yokharian",
         description: "AI-powered tools from Swift roots to web frontiers. Everything I build is open source.",
         theme_color: "#006cac",
         background_color: "#fdfdfd",
@@ -117,13 +117,13 @@ export default defineConfig({
             type: "image/x-icon",
           },
           {
-            src: "peter-avatar.jpg",
+            src: "yokharian-avatar.webp",
             sizes: "192x192",
             type: "image/jpeg",
             purpose: "any",
           },
           {
-            src: "peter-avatar.jpg",
+            src: "yokharian-avatar.webp",
             sizes: "512x512",
             type: "image/jpeg",
             purpose: "any maskable",

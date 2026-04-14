@@ -16,24 +16,24 @@ if (type === "BlogPosting") {
     description: data.description,
     author: {
       "@type": "Person",
-      name: data.author || "Peter Steinberger",
-      url: "https://steipete.me/about",
+      name: data.author || "Sofia Escobedo",
+      url: "https://yokharian.dev/about",
     },
     datePublished: data.pubDatetime.toISOString(),
     dateModified: data.modDatetime?.toISOString() || data.pubDatetime.toISOString(),
     publisher: {
       "@type": "Person",
-      name: "Peter Steinberger",
+      name: "Sofia Escobedo",
       logo: {
         "@type": "ImageObject",
-        url: "https://steipete.me/peter-avatar.jpg",
+        url: "https://yokharian.dev/yokharian-avatar.webp",
       },
     },
     mainEntityOfPage: {
       "@type": "WebPage",
       "@id": data.url,
     },
-    image: data.ogImage || "https://steipete.me/peter-avatar.jpg",
+    image: data.ogImage || "https://yokharian.dev/yokharian-avatar.webp",
     articleSection: data.tags?.[0] || "Technology",
     keywords: data.tags?.join(", ") || "",
     wordCount: data.wordCount,
@@ -43,13 +43,13 @@ if (type === "BlogPosting") {
   structuredData = {
     "@context": "https://schema.org",
     "@type": "Person",
-    name: "Peter Steinberger",
-    url: "https://steipete.me",
-    image: "https://steipete.me/peter-avatar.jpg",
+    name: "Sofia Escobedo",
+    url: "https://yokharian.dev",
+    image: "https://yokharian.dev/yokharian-avatar.webp",
     sameAs: [
-      "https://github.com/steipete",
-      "https://twitter.com/steipete",
-      "https://bsky.app/profile/steipete.me",
+      "https://github.com/yokharian",
+      "https://x.com/yokharian",
+      "https://bsky.app/profile/yokharian.dev",
     ],
     jobTitle: "Software Engineer",
     description:
@@ -59,17 +59,17 @@ if (type === "BlogPosting") {
   structuredData = {
     "@context": "https://schema.org",
     "@type": "WebSite",
-    name: "Peter Steinberger",
-    url: "https://steipete.me",
+    name: "Sofia Escobedo",
+    url: "https://yokharian.dev",
     description:
       "AI-powered tools from Swift roots to web frontiers. Every commit lands on GitHub for you to fork & remix.",
     author: {
       "@type": "Person",
-      name: "Peter Steinberger",
+      name: "Sofia Escobedo",
     },
     potentialAction: {
       "@type": "SearchAction",
-      target: "https://steipete.me/search?q={search_term_string}",
+      target: "https://yokharian.dev/search?q={search_term_string}",
       "query-input": "required name=search_term_string",
     },
   };
