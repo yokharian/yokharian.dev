@@ -23,8 +23,8 @@
 :root,
 html[data-theme="light"] {
   --background: #fdfdfd;
-  --foreground: #282728;
-  --accent: #006cac;
+  --foreground: #212529;
+  --accent: #007bff;
   --muted: #e6e6e6;
   --border: #ece9e9;
 }
@@ -32,9 +32,9 @@ html[data-theme="light"] {
 html[data-theme="dark"] {
   --background: #212737;
   --foreground: #eaedf3;
-  --accent: #ff6b01;
+  --accent: #007bff;
   --muted: #343f60bf;
-  --border: #ab4b08;
+  --border: #657094bf;
 }
 
 @theme {
