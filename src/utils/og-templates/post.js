@@ -1,7 +1,17 @@
 import satori from "satori";
 // import { html } from "satori-html";
-import { SITE } from "@/config";
 import loadGoogleFonts from "../loadGoogleFont";
+
+/**
+ * Open Graph Image Template for Blog Posts
+ *
+ * This template generates social media preview cards for blog posts.
+ *
+ * CUSTOMIZATION: We override the default behavior to show "steipete.me"
+ * on the right side instead of the author name (Peter Steinberger).
+ * This avoids redundancy since the author name already appears on the left
+ * with "by Peter Steinberger".
+ */
 
 // const markup = html`<div
 //       style={{
@@ -93,7 +103,7 @@ import loadGoogleFonts from "../loadGoogleFont";
 //       </div>
 //     </div>`;
 
-export default async post => {
+export default async (post) => {
   return satori(
     {
       type: "div",
@@ -203,7 +213,7 @@ export default async post => {
                             type: "span",
                             props: {
                               style: { overflow: "hidden", fontWeight: "bold" },
-                              children: SITE.title,
+                              children: "steipete.me",
                             },
                           },
                         ],
@@ -221,9 +231,7 @@ export default async post => {
       width: 1200,
       height: 630,
       embedFont: true,
-      fonts: await loadGoogleFonts(
-        post.data.title + post.data.author + SITE.title + "by"
-      ),
+      fonts: await loadGoogleFonts(post.data.title + post.data.author + "steipete.me" + "by"),
     }
   );
 };

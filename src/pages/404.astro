@@ -1,17 +1,17 @@
 ---
-import Layout from "@/layouts/Layout.astro";
-import Header from "@/components/Header.astro";
 import Footer from "@/components/Footer.astro";
+import Header from "@/components/Header.astro";
 import LinkButton from "@/components/LinkButton.astro";
 import { SITE } from "@/config";
+import Layout from "@/layouts/Layout.astro";
 ---
 
-<Layout title={`404 Not Found | ${SITE.title}`}>
+<Layout title={`404 Not Found | ${SITE.title}`} description="Page not found. The requested page doesn't exist on Peter Steinberger's blog.">
   <Header />
 
   <main
     id="main-content"
-    class="app-layout flex flex-1 items-center justify-center"
+    class="mx-auto flex max-w-3xl flex-1 items-center justify-center"
   >
     <div class="mb-14 flex flex-col items-center justify-center">
       <h1 class="text-9xl font-bold text-accent">404</h1>

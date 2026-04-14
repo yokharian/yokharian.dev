@@ -1,9 +1,11 @@
-interface Window {
-  theme?: {
-    themeValue: string;
-    setPreference: () => void;
-    reflectPreference: () => void;
-    getTheme: () => string;
-    setTheme: (val: string) => void;
-  };
+import "../.astro/types";
+
+declare global {
+  interface Window {
+    twttr?: {
+      widgets?: {
+        load: () => void;
+      };
+    };
+  }
 }
