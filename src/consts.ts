@@ -34,7 +34,7 @@ export const SITE: Site = {
   website: "https://yokharian.dev/",
   author: "Sofia Escobedo",
   profile: "https://yokharian.dev/about",
-  desc: "AI-powered tools from Swift roots to web frontiers. Every commit lands on GitHub for you to fork & remix.",
+  desc: "Backend and cloud engineer with expertise in AWS serverless architecture and AI-enhanced systems (agents, RAG, prompt engineering) for production environments.",
   title: "Sofia Escobedo",
   ogImage: "yokharian-avatar.webp",
   lightAndDarkMode: true,

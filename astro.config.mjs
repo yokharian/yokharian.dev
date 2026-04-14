@@ -103,7 +103,7 @@ export default defineConfig({
       manifest: {
         name: "Sofia Escobedo",
         short_name: "yokharian",
-        description: "AI-powered tools from Swift roots to web frontiers. Everything I build is open source.",
+        description: "Backend and cloud engineer with expertise in AWS serverless architecture and AI-enhanced systems (agents, RAG, prompt engineering) for production environments.",
         theme_color: "#006cac",
         background_color: "#fdfdfd",
         display: "standalone",
