@@ -1,93 +1,169 @@
 ---
-// Header component for Astro
-import {getI18nData, getSiteData} from '../data';
+import IconX from "@/assets/icons/IconX.svg";
+import IconMoon from "@/assets/icons/IconMoon.svg";
+import IconSearch from "@/assets/icons/IconSearch.svg";
+import IconArchive from "@/assets/icons/IconArchive.svg";
+import IconSunHigh from "@/assets/icons/IconSunHigh.svg";
+import IconMenuDeep from "@/assets/icons/IconMenuDeep.svg";
+import LinkButton from "./LinkButton.astro";
+import { SITE } from "@/config";
 
-// Get current locale
-const currentLocale = Astro.currentLocale || 'en';
-const t = getI18nData(currentLocale);
-const siteData = getSiteData();
+const { pathname } = Astro.url;
 
-// Helper function to get localized URL
-function getLocalizedUrl(path: string, locale: string): string {
-  // With prefixDefaultLocale: true, all locales need prefix
-  return `/${locale}${path}`;
-}
+// Remove trailing slash from current pathname if exists
+const currentPath =
+  pathname.endsWith("/") && pathname !== "/" ? pathname.slice(0, -1) : pathname;
 
-// Get current path without locale prefix
-const currentPath = (() => {
-  let path = Astro.url.pathname.replace(/^\/[a-z]{2}(\/|$)/, '/');
-  if (path === '') {
-    path = '/';
-  }
-  return path;
-})();
+const isActive = (path: string) => {
+  const currentPathArray = currentPath.split("/").filter(p => p.trim());
+  const pathArray = path.split("/").filter(p => p.trim());
 
-// Get alternate language URLs
-const enUrl = getLocalizedUrl(currentPath, 'en');
-const esUrl = getLocalizedUrl(currentPath, 'es');
+  return currentPath === path || currentPathArray[0] === pathArray[0];
+};
 ---
 
-<header class="border-b border-gray-100 bg-white/80 backdrop-blur sticky top-0 z-40">
-    <div class="max-w-7xl mx-auto px-4 md:px-8 py-6 flex items-center justify-between">
-        <a href={getLocalizedUrl('/', currentLocale)}
-           class="text-2xl font-bold text-gray-900 tracking-tight hover:text-brand-600 transition-colors duration-200">
-          {siteData.author}
-        </a>
-        <nav class="flex items-center gap-6">
-            <div class="hidden md:flex items-center gap-6">
-                <a
-                        href={getLocalizedUrl('/', currentLocale)}
-                        class="text-gray-600 hover:text-gray-900 font-medium transition-colors duration-200"
-                >
-                  {t.header.home}
-                </a>
-                <a
-                        href={getLocalizedUrl('/blog', currentLocale)}
-                        class="text-gray-600 hover:text-gray-900 font-medium transition-colors duration-200"
-                >
-                  {t.header.blog}
-                </a>
-                <a
-                        href={getLocalizedUrl('/certifications', currentLocale)}
-                        class="text-gray-600 hover:text-gray-900 font-medium transition-colors duration-200"
-                >
-                  {t.header.certifications}
-                </a>
-            </div>
+<a
+  id="skip-to-content"
+  href="#main-content"
+  class="absolute start-16 -top-full z-50 bg-background px-3 py-2 text-accent backdrop-blur-lg transition-all focus:top-4"
+>
+  Skip to content
+</a>
 
-            <a
-                    href={siteData.calendlyUrl}
-                    class="inline-flex items-center rounded-lg bg-brand-600 text-white px-4 py-2.5 text-sm font-medium shadow-sm hover:bg-brand-700 hover:shadow-md focus:outline-none focus:ring-2 focus:ring-brand-500 focus:ring-offset-2 transition-all duration-200 transform hover:-translate-y-0.5"
-                    data-rum-id="schedule_call"
-                    onclick="if(window.recordRumEvent){window.recordRumEvent('cta_click', {button: 'schedule_call'});}"
-            >
-              {t.header.cta}
-            </a>
-
-            <div class="flex items-center gap-1 text-sm bg-gray-100 rounded-lg p-1">
-                <a
-                        href={enUrl}
-                        aria-label="Switch to English"
-                        class={`px-3 py-1.5 rounded-md font-medium transition-all duration-300 ease-in-out transform ${
-                          currentLocale === 'en'
-                            ? 'bg-white text-brand-700 shadow-sm scale-105'
-                            : 'text-gray-600 hover:text-brand-700 hover:bg-white/50 hover:scale-102'
-                        }`}
-                >
-                    EN
-                </a>
-                <a
-                        href={esUrl}
-                        aria-label="Cambiar a Español"
-                        class={`px-3 py-1.5 rounded-md font-medium transition-all duration-300 ease-in-out transform ${
-                          currentLocale === 'es'
-                            ? 'bg-white text-brand-700 shadow-sm scale-105'
-                            : 'text-gray-600 hover:text-brand-700 hover:bg-white/50 hover:scale-102'
-                        }`}
-                >
-                    ES
-                </a>
-            </div>
-        </nav>
-    </div>
+<header
+  class="app-layout flex flex-col items-center justify-between sm:flex-row"
+>
+  <div
+    id="top-nav-wrap"
+    class:list={[
+      "py-4 sm:py-6",
+      "border-b border-border",
+      "relative w-full bg-background",
+      "flex items-baseline justify-between sm:items-center",
+    ]}
+  >
+    <a
+      href="/"
+      class="absolute py-1 text-xl leading-8 font-semibold whitespace-nowrap sm:static sm:my-auto sm:text-2xl sm:leading-none"
+    >
+      {SITE.title}
+    </a>
+    <nav
+      id="nav-menu"
+      class="flex w-full flex-col items-center sm:ms-2 sm:flex-row sm:justify-end sm:space-x-4 sm:py-0"
+    >
+      <button
+        id="menu-btn"
+        class="focus-outline self-end p-2 sm:hidden"
+        aria-label="Open Menu"
+        aria-expanded="false"
+        aria-controls="menu-items"
+      >
+        <IconX id="close-icon" class="hidden" />
+        <IconMenuDeep id="menu-icon" />
+      </button>
+      <ul
+        id="menu-items"
+        class:list={[
+          "mt-4 grid w-44 grid-cols-2 place-content-center gap-2",
+          "[&>li>a]:block [&>li>a]:px-4 [&>li>a]:py-3 [&>li>a]:text-center [&>li>a]:font-medium [&>li>a]:hover:text-accent sm:[&>li>a]:px-2 sm:[&>li>a]:py-1",
+          "hidden",
+          "sm:mt-0 sm:flex sm:w-auto sm:gap-x-5 sm:gap-y-0",
+        ]}
+      >
+        <li class="col-span-2">
+          <a href="/posts" class:list={{ "active-nav": isActive("/posts") }}>
+            Posts
+          </a>
+        </li>
+        <li class="col-span-2">
+          <a href="/tags" class:list={{ "active-nav": isActive("/tags") }}>
+            Tags
+          </a>
+        </li>
+        <li class="col-span-2">
+          <a href="/about" class:list={{ "active-nav": isActive("/about") }}>
+            About
+          </a>
+        </li>
+        {
+          SITE.showArchives && (
+            <li class="col-span-2">
+              <LinkButton
+                href="/archives"
+                class:list={[
+                  "focus-outline flex justify-center p-3 sm:p-1",
+                  {
+                    "active-nav [&>svg]:stroke-accent": isActive("/archives"),
+                  },
+                ]}
+                title="Archives"
+                aria-label="archives"
+              >
+                <IconArchive class="hidden sm:inline-block" />
+                <span class="sm:sr-only">Archives</span>
+              </LinkButton>
+            </li>
+          )
+        }
+        <li class="col-span-1 flex items-center justify-center">
+          <LinkButton
+            href="/search"
+            class:list={[
+              "focus-outline flex p-3 sm:p-1",
+              { "[&>svg]:stroke-accent": isActive("/search") },
+            ]}
+            title="Search"
+            aria-label="search"
+          >
+            <IconSearch />
+            <span class="sr-only">Search</span>
+          </LinkButton>
+        </li>
+        {
+          SITE.lightAndDarkMode && (
+            <li class="col-span-1 flex items-center justify-center">
+              <button
+                id="theme-btn"
+                class="focus-outline relative size-12 p-4 sm:size-8 hover:[&>svg]:stroke-accent"
+                title="Toggles light & dark"
+                aria-label="auto"
+                aria-live="polite"
+              >
+                <IconMoon class="absolute top-[50%] left-[50%] -translate-[50%] scale-100 rotate-0 transition-all dark:scale-0 dark:-rotate-90" />
+                <IconSunHigh class="absolute top-[50%] left-[50%] -translate-[50%] scale-0 rotate-90 transition-all dark:scale-100 dark:rotate-0" />
+              </button>
+            </li>
+          )
+        }
+      </ul>
+    </nav>
+  </div>
 </header>
+
+<script>
+  function toggleNav() {
+    const menuBtn = document.querySelector("#menu-btn");
+    const menuItems = document.querySelector("#menu-items");
+    const menuIcon = document.querySelector("#menu-icon");
+    const closeIcon = document.querySelector("#close-icon");
+
+    if (!menuBtn || !menuItems || !menuIcon || !closeIcon) return;
+
+    menuBtn.addEventListener("click", () => {
+      const openMenu = menuBtn.getAttribute("aria-expanded") === "true";
+
+      menuBtn.setAttribute("aria-expanded", openMenu ? "false" : "true");
+      menuBtn.setAttribute("aria-label", openMenu ? "Open Menu" : "Close Menu");
+
+      menuItems.classList.toggle("hidden");
+      menuIcon.classList.toggle("hidden");
+      closeIcon.classList.toggle("hidden");
+    });
+  }
+
+  toggleNav();
+
+  // Runs on view transitions navigation
+  document.addEventListener("astro:after-swap", toggleNav);
+</script>
