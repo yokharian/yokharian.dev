@@ -36,6 +36,8 @@ const {
   tags,
   hideEditPost,
   heroImage,
+  banner,
+  lucidchartUrl,
 } = post.data;
 
 const { Content } = await render(post);
@@ -150,6 +152,18 @@ const wordCount = (post.body ?? "").split(/\s+/).length;
       }
       <Content />
     </article>
+    {
+      lucidchartUrl && (
+          <div class="aspect-video overflow-hidden rounded-md shadow-lg">
+            <iframe
+              src={lucidchartUrl}
+              class="h-full w-full"
+              title={`Architecture diagram for ${title}`}
+              loading="lazy"
+            ></iframe>
+          </div>
+      )
+    }
 
     <NewsletterForm />
 
