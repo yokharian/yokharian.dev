@@ -3,13 +3,14 @@ title: "Data processing pipeline"
 description: "Cloud and backend infrastructure to measure the electrical usage and cost of industrial factories through IoT electrical sensors"
 employer: "Next-E"
 heroImage: "/assets/img/2025/nexte.webp"
-banner: "https://cdn.prod.website-files.com/67c3a771f50ee86278e081b8/67cbf29308ea1ae1f6dc483e_67cb925d445935b57d5f7800_photo-1461088945293-0c17689e48ac.jpeg"
 pubDatetime: "Mon Aug 01 2022 05:00:00 GMT+0000 (Coordinated Universal Time)"
+startDate: "Mon Aug 01 2022 05:00:00 GMT+0000 (Coordinated Universal Time)"
+endDate: "Mon Aug 01 2022 05:00:00 GMT+0000 (Coordinated Universal Time)"
 lucidchartUrl: "https://lucid.app/documents/embedded/94970f86-7e06-49f3-a315-5112b722191f"
 tags: ["Serverless","Project Management","IoT","AWS CDK","AWS CloudFormation","Kinesis","Architecture"]
 lang: "en"
+portfolio: true
 translationKey: "iot-electrical-bi-and-kpis-startup"
-featured: true
 ---
 
 • I built the entire infrastructure as code using **AWS CDK**, which allowed everything to be scalable, flexible, and easy to maintain, especially considering the wide variety of sensors and hardware we planned to integrate in the future.

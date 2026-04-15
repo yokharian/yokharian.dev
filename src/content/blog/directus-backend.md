@@ -3,13 +3,13 @@ title: "Backend CI/CD container orchestation"
 description: "Using ECS that is ❝similar to kubernetes❞ automatically deployed via Jenkins I deployed a container"
 employer: "Lighthouse Technologies"
 heroImage: "/assets/img/2025/jenkins-ecs.webp"
-banner: "https://cdn.prod.website-files.com/67c3a771f50ee86278e081b8/67cbf29408ea1ae1f6dc48f4_67cbd53bc957f1d484626cff_photo-1504253163759-c23fccaebb55.jpeg"
 pubDatetime: "Tue Nov 12 2024 06:00:00 GMT+0000 (Coordinated Universal Time)"
+startDate: "Tue Nov 12 2024 06:00:00 GMT+0000 (Coordinated Universal Time)"
+endDate: "Mon Jul 29 2024 05:00:00 GMT+0000 (Coordinated Universal Time)"
 lucidchartUrl: ""
 tags: ["AWS ECS","AWS CodeBuild","AWS S3","AWS RDS","AWS CDK","Jenkins"]
 lang: "en"
 translationKey: "directus-backend"
-featured: true
 ---
 
 🚀 **Container Deployment on AWS with Jenkins and Bitbucket**
@@ -32,4 +32,4 @@ Furthermore, the database is hosted on **Amazon RDS** within a **VPC**, ensuring
 
 Check out the AWS infrastructure diagram 👇
 
-![diagram](/assets/images/276273238a789dfcec12cf0c6e9ca71b8751857a.png)
+![diagram](/assets/img/2025/276273238a789dfcec12cf0c6e9ca71b8751857a.png)

@@ -3,13 +3,14 @@ title: "Scalable ETL pipelines"
 description: "Significantly reduced infrastructure expenses in AWS"
 employer: "Next-e"
 heroImage: "/assets/img/2025/airflow.webp"
-banner: "https://cdn.prod.website-files.com/67c3a771f50ee86278e081b8/67cbe1da6e6df1b12e3845c7_67cbdb1089836af946d606fd_photo-1515879218367-8466d910aaa4.jpeg"
 pubDatetime: "Tue Mar 08 2022 19:02:00 GMT+0000 (Coordinated Universal Time)"
+startDate: "Tue Mar 08 2022 19:02:00 GMT+0000 (Coordinated Universal Time)"
+endDate: "Fri May 09 2025 17:00:00 GMT+0000 (Coordinated Universal Time)"
 lucidchartUrl: "https://lucid.app/documents/embedded/30f8bc57-131a-4503-84ae-af9a9f673a31"
 tags: ["AWS ECS","Docker","Amazon RDS","Amazon EFS","CI/CD","AWS Load Balancer","DNS"]
 lang: "en"
+portfolio: true
 translationKey: "apache-airflow-architecture-design"
-featured: true
 ---
 
 As part of my work at a startup 🚀, I had the opportunity to design and implement the backend and cloud infrastructure using **AWS CDK**. One of the key components of this solution was the implementation of Apache Airflow, the popular workflow orchestration tool, on the AWS platform ☁️.

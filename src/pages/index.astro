@@ -18,7 +18,8 @@ const posts = await getCollection("blog");
 const sortedPosts = getSortedPosts(posts);
 const posts2026AndLater = sortedPosts.filter(({ data }) => data.pubDatetime.getFullYear() >= 2026);
 const featuredPosts = sortedPosts.filter(({ data }) => data.featured);
-const recentPosts = sortedPosts.filter(({ data }) => !data.featured);
+const portfolioPosts = sortedPosts.filter(({ data }) => data.portfolio);
+const recentPosts = sortedPosts.filter(({ data }) => !data.featured && !data.portfolio);
 ---
 
 <Layout description="Sofia Escobedo: Backend and cloud engineer with 5+ years of experience on AWS and Python">
@@ -80,7 +81,7 @@ const recentPosts = sortedPosts.filter(({ data }) => !data.featured);
             <h2 class="text-2xl font-semibold tracking-wide">Featured</h2>
             <ul>
               {featuredPosts.map((data) => (
-                <Card variant="h3" {...data} showImage={false} />
+                <Card variant="h3" {...data} showImage={true} />
               ))}
             </ul>
           </section>
@@ -89,6 +90,21 @@ const recentPosts = sortedPosts.filter(({ data }) => !data.featured);
       )
     }
 
+    {
+      portfolioPosts.length > 0 && (
+        <>
+          <section id="portfolio" class="pt-12 pb-6">
+            <h2 class="text-2xl font-semibold tracking-wide">Relevant Professional Experience</h2>
+            <ul>
+              {portfolioPosts.map((data) => (
+                <Card variant="h3" {...data} showImage={true} />
+              ))}
+            </ul>
+          </section>
+          {recentPosts.length > 0 && <Hr />}
+        </>
+      )
+    }
     {
       recentPosts.length > 0 && (
         <section id="recent-posts" class="pt-12 pb-6">

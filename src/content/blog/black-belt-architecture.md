@@ -3,13 +3,13 @@ title: "Black Belt Architecture"
 description: "demonstration of knowledge"
 employer: "XalDigital"
 heroImage: "/assets/img/certifications/black belt badge.png"
-banner: "https://cdn.prod.website-files.com/67c3a771f50ee86278e081b8/67cbf2934837c3315bfedf4f_67cbe17608ea1ae1f6d26cf0_67cbdbac9edb7468375dfbb5_photo-1457369804613-52c61a468e7d.jpeg"
 pubDatetime: "Tue Dec 06 2022 06:00:00 GMT+0000 (Coordinated Universal Time)"
+startDate: "Tue Dec 06 2022 06:00:00 GMT+0000 (Coordinated Universal Time)"
+endDate: "Sun May 21 2023 05:00:00 GMT+0000 (Coordinated Universal Time)"
 lucidchartUrl: "https://lucid.app/documents/embedded/0e7582a6-9149-4f56-a251-3f0b67a8af99"
 tags: ["AWS Well-Architected Framework","Infrastructure as Code","High Availability Architecture","Scalability & Elasticity"]
 lang: "en"
 translationKey: "black-belt-architecture"
-featured: true
 ---
 
 Good morning Sofia

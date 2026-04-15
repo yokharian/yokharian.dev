@@ -3,13 +3,13 @@ title: "Big Data ETL migrations"
 description: "Executed multiple ETL migration projects from Oracle to AWS Glue, with strong emphasis on detailed requirement collection and comprehensive planning"
 employer: "XalDigital"
 heroImage: "/assets/img/2025/etls-bigdata.webp"
-banner: "https://cdn.prod.website-files.com/67c3a771f50ee86278e081b8/67cbe41e022e968fe92ed459_67cbdfe83b32df846e2a44a4_photo-1732320935426-395f3c1d38be.jpeg"
 pubDatetime: "Fri Nov 01 2024 06:00:00 GMT+0000 (Coordinated Universal Time)"
+startDate: "Fri Nov 01 2024 06:00:00 GMT+0000 (Coordinated Universal Time)"
+endDate: "Fri Nov 01 2024 06:00:00 GMT+0000 (Coordinated Universal Time)"
 lucidchartUrl: ""
 tags: ["Python","AWS Glue","AWS Redshift","AWS CloudFormation","AWS Step Functions","Project Planning","Amazon CloudWatch","AWS SNS"]
 lang: "en"
 translationKey: "big-data-etls"
-featured: true
 ---
 
 During my two years at **Xaldigital**, I had the opportunity to participate in several challenging projects focused on data migration and automation in the cloud. These projects ranged from lead management to the integration of customer and employee surveys, as well as the creation of a master customer record. Here’s a summary of these projects:

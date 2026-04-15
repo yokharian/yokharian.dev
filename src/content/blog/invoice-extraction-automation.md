@@ -3,13 +3,14 @@ title: "Invoice extractor"
 description: "Significantly reduced workload of the finance team"
 employer: "FairPlay"
 heroImage: "/assets/img/2025/invoice-extraction.webp"
-banner: "https://cdn.prod.website-files.com/67c3a771f50ee86278e081b8/67cbf293d19d256af5e0dccd_67cbd68c8ae8762187bf946d_photo-1551288049-bebda4e38f71.jpeg"
 pubDatetime: "Sat Jun 05 2021 04:33:00 GMT+0000 (Coordinated Universal Time)"
+startDate: "Sat Jun 05 2021 04:33:00 GMT+0000 (Coordinated Universal Time)"
+endDate: ""
 lucidchartUrl: ""
 tags: ["Python","Webhooks","FastAPI","Asynchronous","REST APIs"]
 lang: "en"
+portfolio: true
 translationKey: "invoice-extraction-automation"
-featured: true
 ---
 
 🔗 **Integration with **[**SAT.ws**]()** using Python and FastAPI**
