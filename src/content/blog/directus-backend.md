@@ -7,7 +7,7 @@ pubDatetime: "Tue Nov 12 2024 06:00:00 GMT+0000 (Coordinated Universal Time)"
 startDate: "Tue Nov 12 2024 06:00:00 GMT+0000 (Coordinated Universal Time)"
 endDate: "Mon Jul 29 2024 05:00:00 GMT+0000 (Coordinated Universal Time)"
 lucidchartUrl: ""
-tags: ["AWS ECS","AWS CodeBuild","AWS S3","AWS RDS","AWS CDK","Jenkins"]
+tags: ["AWS ECS","AWS CodeBuild","AWS S3","AWS RDS","AWS CDK","Jenkins","portfolio"]
 lang: "en"
 translationKey: "directus-backend"
 ---

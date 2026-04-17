@@ -7,7 +7,7 @@ pubDatetime: "Thu Feb 04 2021 05:33:00 GMT+0000 (Coordinated Universal Time)"
 startDate: "Thu Feb 04 2021 05:33:00 GMT+0000 (Coordinated Universal Time)"
 endDate: ""
 lucidchartUrl: ""
-tags: ["Python","ETL Automation","REST APIs"]
+tags: ["Python","ETL Automation","REST APIs","portfolio"]
 lang: "en"
 portfolio: true
 translationKey: "google-analytics-data-extractor"

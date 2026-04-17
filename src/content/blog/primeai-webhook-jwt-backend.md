@@ -7,7 +7,7 @@ pubDatetime: "Sun Feb 02 2025 06:00:00 GMT+0000 (Coordinated Universal Time)"
 startDate: "Sun Feb 02 2025 06:00:00 GMT+0000 (Coordinated Universal Time)"
 endDate: "Sat Feb 01 2025 06:00:00 GMT+0000 (Coordinated Universal Time)"
 lucidchartUrl: ""
-tags: ["Python","AWS Lambda","AWS API Gateway","AWS DynamoDB","AWS CDK","REST APIs"]
+tags: ["Python","AWS Lambda","AWS API Gateway","AWS DynamoDB","AWS CDK","REST APIs","portfolio"]
 lang: "en"
 translationKey: "primeai-webhook-jwt-backend"
 ---
@@ -36,7 +36,5 @@ Any changes made to user data are instantly reflected in our database.
 - Utilizing **AWS CDK** allows for easy scalability and robust security measures.
 - Maintains a serverless architecture, reducing operational overhead.
 
-‍
 
-‍
 ![diagram](/assets/img/2025/33afa5c4bf8fc9d4c50343d099d5c0953fe5aaec.png)
