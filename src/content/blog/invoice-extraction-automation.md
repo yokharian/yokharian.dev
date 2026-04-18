@@ -13,19 +13,37 @@ portfolio: true
 translationKey: "invoice-extraction-automation"
 ---
 
-🔗 **Integration with **[**SAT.ws**]()** using Python and FastAPI**
+In 2020, I built an invoice extraction from Mexico's Tax Administration Service (SAT). I was only armed with determination and online documentation, but **without the AI assistants** we rely on today haha I built an automated system that would process invoices for dozens of companies efficiently.
 
-[**SAT.ws**]() is a cloud API that connects directly to the **Mexican Tax Administration Service (SAT)**, allowing you to automate the extraction of electronic invoices (CFDIs) without the need for manual access.
+**The Challenge**
 
-⚙️ **Asynchronous Process**
+SATWS, a cloud API offering automated electronic invoice (CFDI) extraction. However, its asynchronous nature presented **unique challenges**. The process required an initial request, waiting **several days** while the platform processed in the background, and **final retrieval** all without losing critical data.
 
-The process is **asynchronous**: first, you make an initial request to [**SAT.ws**]() to extract the invoices. The platform processes this request in the background and does not immediately deliver the invoices. To avoid repetitive queries about the status of the process, **webhooks** can be used. By registering a webhook URL on [**SAT.ws**](), you will receive an automatic notification when the invoices are ready to be downloaded.
+![diagram.svg](/assets/img/2025/diagram.svg)
 
+**The Solution**
 
-📥 **Final Request for Invoices**
+Over one to two months of focused development, I architected a solution using FastAPI, leveraging its exceptional handling of asynchronous operations and built-in Swagger documentation. The implementation included:
 
-Once this notification is received, your application can make a second request to finally obtain the files (XML and PDF).
+- **Webhook Integration**: Rather than repetitively querying the API, I registered webhook URLs to receive automatic notifications when invoices were ready
+- **Stream Processing**: Developed a system to download large files directly to temporary memory and upload to S3 using HTTP stream requests, preventing RAM exhaustion
+- **Robust Error Handling**: Implemented a comprehensive retry system to ensure no invoice was lost
+- **State Management**: Created a PostgreSQL-based tracking system for extraction states using raw SQL queries without an ORM (Object-Relational Mapping a tool that abstracts database interactions into object-oriented code)
 
-🚀 **Benefits of FastAPI**
+**Learning Through Challenge**
 
-**FastAPI** is especially useful in this context, as it facilitates the handling of asynchronous operations between the SAT and your application. Its **SWAGGER** integration is very helpful and simplifies the configuration of endpoints to receive notifications via webhook. This integration makes the entire process **efficient** and **easy to implement**.
+The learning environment of 2020 made this project particularly formative. Without ChatGPT or AI assistants, I relied entirely on official documentation—meticulously studying Python's standard library references and SATWS's Swagger specifications. This constraint became my greatest teacher. Page by page, I extracted the knowledge needed to build a complete RESTful backend integration.
+
+Choosing the right system for tracking information was a big decision.  I could have used a simple file, but I chose a database. This was better because the tools were already there, and it helped me learn new skills.  My goal was to use what I had and learn something new at the same time.
+
+![synapse.webp](/assets/img/2025/synapse.webp)
+
+**Key Insights**
+
+The most valuable lesson? Tools are ephemeral, but concepts endure. When SATWS completely redesigned their backend 2-3 years later, requiring a full rewrite, I wasn't surprised—I'd learned that in software development, change is the only constant. By focusing on understanding abstract concepts rather than memorizing library-specific syntax, I built knowledge that transfers across technologies.
+
+**The Result**
+
+After two months of dedicated development, I delivered an ETL system that automated invoice extraction for dozens of companies, reducing manual processing time from hours to minutes. The system's clean, efficient code orchestrated the entire flow seamlessly, from initial request through asynchronous processing to final invoice delivery. 
+
+FastAPI remains a powerful tool in my arsenal years later, validating my technology choices. Most importantly, I learned that the ability to learn—to read, understand, and implement from documentation alone—is perhaps the most valuable skill in our rapidly evolving field.
