@@ -9,20 +9,6 @@ export const SOCIALS = [
     active: true,
   },
   {
-    name: "X",
-    href: "https://x.com/yokharian",
-    linkTitle: `${SITE.title} on X`,
-    icon: "twitter",
-    active: true,
-  },
-  {
-    name: "BlueSky",
-    href: "https://bsky.app/profile/yokharian.dev",
-    linkTitle: `${SITE.title} on BlueSky`,
-    icon: "bluesky",
-    active: true,
-  },
-  {
     name: "LinkedIn",
     href: "https://www.linkedin.com/in/yokharian",
     linkTitle: `${SITE.title} on LinkedIn`,

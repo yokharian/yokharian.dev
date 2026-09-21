@@ -75,14 +75,6 @@ export const SOCIAL_LINKS: SocialLink[] = [
     label: "GitHub",
   },
   {
-    href: "https://x.com/yokharian",
-    label: "Twitter",
-  },
-  {
-    href: "https://bsky.app/profile/yokharian.dev",
-    label: "BlueSky",
-  },
-  {
     href: "/rss.xml",
     label: "RSS",
   },
@@ -91,8 +83,6 @@ export const SOCIAL_LINKS: SocialLink[] = [
 // Icon map for social media
 export const ICON_MAP: Record<string, string> = {
   GitHub: "github",
-  Twitter: "twitter",
-  BlueSky: "bsky",
   RSS: "rss",
   Email: "mail",
 };
