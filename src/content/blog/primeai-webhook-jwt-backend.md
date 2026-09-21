@@ -3,13 +3,13 @@ title: "Backend with JWT authorization"
 description: "Maintaining high-quality standards, I developed a REST API that integrates with an authorization system & webhook requests"
 employer: "Lighthouse Technologies"
 heroImage: "/assets/img/2025/jwt-backend.webp"
-banner: "https://cdn.prod.website-files.com/67c3a771f50ee86278e081b8/67cbf2938dcac0c620425d98_67cbd4e5d19d256af5d102f7_photo-1515879218367-8466d910aaa4.jpeg"
 pubDatetime: "Sun Feb 02 2025 06:00:00 GMT+0000 (Coordinated Universal Time)"
+startDate: "Sun Feb 02 2025 06:00:00 GMT+0000 (Coordinated Universal Time)"
+endDate: "Sat Feb 01 2025 06:00:00 GMT+0000 (Coordinated Universal Time)"
 lucidchartUrl: ""
-tags: ["Python","AWS Lambda","AWS API Gateway","AWS DynamoDB","AWS CDK","REST APIs"]
+tags: ["Python","AWS Lambda","AWS API Gateway","AWS DynamoDB","AWS CDK","REST APIs","portfolio"]
 lang: "en"
 translationKey: "primeai-webhook-jwt-backend"
-featured: true
 ---
 
 I developed a robust **serverless backend infrastructure** using **AWS CDK**. This project integrates external webhooks from **Clerk** for seamless synchronization of user data, including:
@@ -36,7 +36,5 @@ Any changes made to user data are instantly reflected in our database.
 - Utilizing **AWS CDK** allows for easy scalability and robust security measures.
 - Maintains a serverless architecture, reducing operational overhead.
 
-‍
 
-‍
-![diagram](/assets/images/33afa5c4bf8fc9d4c50343d099d5c0953fe5aaec.png)
+![diagram](/assets/img/2025/33afa5c4bf8fc9d4c50343d099d5c0953fe5aaec.png)

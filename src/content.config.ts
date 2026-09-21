@@ -8,23 +8,28 @@ const blog = defineCollection({
   loader: glob({ pattern: "**/[^_]*.{md,mdx}", base: `./${BLOG_PATH}` }),
   schema: ({ image }) =>
     z.object({
+      // post details
+      title: z.string(),
+      description: z.string(),
       author: z.string().default(SITE.author),
       pubDatetime: z.coerce.date(),
       modDatetime: z.date().optional().nullable(),
-      title: z.string(),
+      tags: z.array(z.string()).default(["others"]),
+      canonicalURL: z.string().optional(),
+      timezone: z.string().optional().default(SITE.timezone),
+      // project details
+      startDate: z.string().optional(),
+      endDate: z.string().optional(),
+      employer: z.string().optional(),
+      // flags
       featured: z.boolean().optional(),
+      portfolio: z.boolean().optional(),
       draft: z.boolean().optional(),
       unlisted: z.boolean().optional(),
-      tags: z.array(z.string()).default(["others"]),
-      ogImage: image().or(z.string()).optional(),
-      heroImage: z.string().optional(),
-      description: z.string(),
-      canonicalURL: z.string().optional(),
       hideEditPost: z.boolean().optional(),
-      timezone: z.string().optional(),
-      // Additional fields from existing posts
-      source: z.string().optional(),
-      AIDescription: z.boolean().optional(),
+      // media 
+      heroImage: z.string().optional(),
+      lucidchartUrl: z.string().optional()
     }),
 });
 
