@@ -1,6 +1,7 @@
 ---
 import { getCollection } from "astro:content";
 import IconArrowRight from "@/assets/icons/IconArrowRight.svg";
+import IconCalendar from "@/assets/icons/IconCalendar.svg";
 import IconRss from "@/assets/icons/IconRss.svg";
 import Card from "@/components/Card.astro";
 import Footer from "@/components/Footer.astro";
@@ -67,6 +68,17 @@ const recentPosts = sortedPosts.filter(({ data }) => !data.featured && !data.por
               </div>
             )
           }
+          <LinkButton
+            href="https://calendly.com/yokharian"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="mt-4 rounded-md border border-accent px-4 py-2 font-medium text-accent transition-colors hover:bg-accent/10"
+            ariaLabel="Book a call with Sofia on Calendly"
+            title="Book a call on Calendly"
+          >
+            <IconCalendar class="inline-block" />
+            Book a call
+          </LinkButton>
         </div>
       </div>
     </section>
