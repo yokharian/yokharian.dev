@@ -64,7 +64,7 @@
     "cz-conventional-changelog": "^3.3.0",
     "husky": "^9.1.7",
     "lint-staged": "^16.4.0",
-    "postcss": "^8.5.9"
+    "postcss": "^8.5.31"
   },
   "config": {
     "commitizen": {
