@@ -46,7 +46,7 @@
     "remark-toc": "^9.0.0",
     "satori": "^0.18.4",
     "sharp": "^0.34.5",
-    "tailwindcss": "^4.2.2",
+    "tailwindcss": "^4.3.3",
     "typescript": "^5.9.3"
   },
   "overrides": {
