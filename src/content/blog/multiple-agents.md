@@ -1,3 +1,12 @@
+---
+
+title: "Cómo programar con múltiples IA sin perder el contexto"
+description: "Un sistema de gobernanza con AGENTS.md como fuente única de verdad para trabajar con varias herramientas de IA al mismo tiempo."
+pubDatetime: "Sun Jan 11 2026 12:00:00 GMT+0000 (Coordinated Universal Time)"
+tags: ["AI","agents","workflow","productivity"]
+lang: "es"
+---
+
 # Cómo programar con multiples IA como Claude, Cursor y que no pierda la memoria y el contexto
 
 ## El problema
