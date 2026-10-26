@@ -9,22 +9,6 @@ import remarkCollapse from "remark-collapse";
 import { remarkLazyLoadImages } from "./src/utils/remarkLazyLoadImages.mjs";
 import { SITE } from "./src/config";
 
-const context7ChatWidget = () => ({
-  name: "context7-chat-widget",
-  hooks: {
-    "astro:config:setup": ({ injectScript }) => {
-      injectScript(
-        "head-inline",
-        `const script = document.createElement("script");
-script.async = true;
-script.src = "https://context7.com/widget.js";
-script.dataset.library = "/websites/yokharian_dev";
-document.head.append(script);`
-      );
-    },
-  },
-});
-
 // https://astro.build/config
 export default defineConfig({
   site: SITE.website,
@@ -110,7 +94,6 @@ export default defineConfig({
       },
     }),
     react(),
-    context7ChatWidget(),
   ],
   vite: {
     resolve: {

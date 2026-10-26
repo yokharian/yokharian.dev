@@ -12,6 +12,12 @@ const { title = SITE_TITLE, description = SITE_DESCRIPTION } = Astro.props;
 <html lang="en">
   <head>
     <BaseHead title={title} description={description} />
+    <script
+      is:inline
+      async
+      src="https://context7.com/widget.js"
+      data-library="/websites/yokharian_dev"
+    ></script>
   </head>
   <body>
     <Context7Ask />
