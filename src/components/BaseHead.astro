@@ -1,4 +1,5 @@
 ---
+import { CONTEXT7_ASK_URL, CONTEXT7_SITE_KEY } from "@/config/context7";
 import { getPageCriticalCSS } from "@/utils/criticalCSS";
 import { SITE } from "../consts";
 
@@ -26,6 +27,13 @@ const criticalCSS = getPageCriticalCSS(Astro.url.pathname);
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <meta name="generator" content={Astro.generator} />
+<meta name="context7-site-verification" content={CONTEXT7_SITE_KEY} />
+<link
+  rel="search"
+  type="text/plain"
+  title="Search yokharian.dev"
+  href={CONTEXT7_ASK_URL}
+/>
 <meta name="author" content={SITE.author} />
 
 <!-- Favicon -->
