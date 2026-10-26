@@ -29,6 +29,7 @@ const blog = defineCollection({
       hideEditPost: z.boolean().optional(),
       // media
       heroImage: z.string().optional(),
+      ogImage: z.string().optional(),
       lucidchartUrl: z.string().optional(),
     }),
 });
