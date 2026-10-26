@@ -65,7 +65,7 @@
       "destination": "/index.md"
     },
     {
-      "source": "/(about|archives|posts)",
+      "source": "/(about|archives|posts|tags)",
       "has": [
         {
           "type": "header",
@@ -74,6 +74,17 @@
         }
       ],
       "destination": "/$1.md"
+    },
+    {
+      "source": "/tags/:path*",
+      "has": [
+        {
+          "type": "header",
+          "key": "accept",
+          "value": "(?i).*text/markdown.*"
+        }
+      ],
+      "destination": "/tags/:path*.md"
     },
     {
       "source": "/posts/:path*",
@@ -98,7 +109,7 @@
       ]
     },
     {
-      "source": "/(|about|archives|posts|posts/.*)",
+      "source": "/(|about|archives|posts|tags|posts/.*|tags/.*)",
       "headers": [
         {
           "key": "Vary",

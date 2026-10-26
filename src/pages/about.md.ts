@@ -6,11 +6,17 @@ import { markdownResponse } from "@/utils/markdownResponse";
 
 export const GET: APIRoute = async () => {
   try {
-    // Read the raw MDX content
     const filePath = join(process.cwd(), "src/pages/about.mdx");
     const rawContent = readFileSync(filePath, "utf-8");
+    const description = rawContent.match(/^description:\s*"([^"]*)"/m)?.[1] ?? "";
+    const body = rawContent.replace(/^---[\s\S]*?---\s*/, "");
+    const content = body
+      .replace(/<[^>]*>/g, " ")
+      .replace(/\s+/g, " ")
+      .trim();
+    const markdown = `---\ntitle: About\ndescription: ${JSON.stringify(description)}\n---\n\n# About\n\n${content}`;
 
-    return markdownResponse(`${CONTEXT7_SEARCH_MARKDOWN}${rawContent}`);
+    return markdownResponse(`${CONTEXT7_SEARCH_MARKDOWN}${markdown}`);
   } catch {
     return new Response("Not found", { status: 404 });
   }

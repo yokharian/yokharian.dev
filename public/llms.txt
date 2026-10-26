@@ -17,4 +17,4 @@ Backend and cloud engineer with expertise in AWS serverless architecture and AI-
 
 ---
 
-*This is the Markdown index for [yokharian.dev](https://yokharian.dev/). Every page is also available as Markdown by appending `.md`, or by sending `Accept: text/markdown`.*
+*This is the Markdown index for [yokharian.dev](https://yokharian.dev/). Content pages are available as Markdown by appending `.md`, or by requesting `Accept: text/markdown`.*
