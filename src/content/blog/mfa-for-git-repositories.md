@@ -1,4 +1,5 @@
 ---
+
 title: "MFA security for GIT repositories"
 description: "Enhanced security by implementing Multi-Factor Authentication for over 50 team members"
 employer: "XalDigital"

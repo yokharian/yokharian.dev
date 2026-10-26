@@ -1,4 +1,5 @@
 ---
+
 title: "Google Analytics data extractor"
 description: "Automated critical business process significantly reducing workload of the analytics team"
 employer: "FairPlay"
@@ -72,7 +73,6 @@ I learned that I was wrong because I focused on code perfection instead of **bus
 - **Think Practically:** I learned to balance code quality with what the business actually needed
 
 > ###### 🧠 The impact was immediate. In my next technical interview at Next-e, extremely challenging, I solved it perfectly. I was blessed to be part of a startup as a Back-end leader, where I grew exponentially. More importantly, I approached them with new wisdom about when "good enough" truly is good enough.
-
 - **Reading documentation is a superpower**: The ability to understand complex technical specifications remains invaluable
 - **Debugging is thinking**: Understanding code execution in detail speeds up learning dramatically
 - **Perfect is the enemy of done**: Business value beats architectural beauty every time
