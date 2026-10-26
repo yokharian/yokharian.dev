@@ -1,9 +1,7 @@
 export const CONTEXT7_ASK_URL =
-	"https://context7.com/api/v2/ask?siteKey=ask_bb39d74af636f4d8ca0d98b9";
+  "https://context7.com/api/v2/ask?siteKey=ask_bb39d74af636f4d8ca0d98b9";
 
-export const CONTEXT7_SITE_KEY = new URL(CONTEXT7_ASK_URL).searchParams.get(
-	"siteKey"
-)!;
+export const CONTEXT7_SITE_KEY = new URL(CONTEXT7_ASK_URL).searchParams.get("siteKey")!;
 
 export const CONTEXT7_SEARCH_MARKDOWN = `## Search
 
