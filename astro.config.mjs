@@ -31,6 +31,8 @@ export default defineConfig({
     mdx(),
     sitemap({
       filenameBase: "sitemap",
+      filter: (page) => SITE.showArchives || !page.replace(/\/$/, "").endsWith("/archives"),
+      lastmod: new Date(),
       serialize: (item) => {
         // Remove trailing slash from URL if present (except for root)
         if (item.url.endsWith("/") && item.url !== SITE.website + "/") {
