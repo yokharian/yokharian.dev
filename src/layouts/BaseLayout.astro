@@ -1,6 +1,7 @@
 ---
 import Analytics from "../components/Analytics.astro";
 import BaseHead from "../components/BaseHead.astro";
+import Context7Ask from "../components/Context7Ask.astro";
 import Footer from "../components/Footer.astro";
 import Sidebar from "../components/Sidebar.astro";
 import { SITE_DESCRIPTION, SITE_TITLE } from "../consts";
@@ -13,6 +14,7 @@ const { title = SITE_TITLE, description = SITE_DESCRIPTION } = Astro.props;
     <BaseHead title={title} description={description} />
   </head>
   <body>
+    <Context7Ask />
     <Sidebar />
     <div id="main-wrapper">
       <main>
