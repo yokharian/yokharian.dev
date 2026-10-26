@@ -1,0 +1,27 @@
+{
+  "name": "Sofia Escobedo",
+  "description": "Backend and cloud engineer with expertise in AWS serverless architecture and AI-enhanced systems (agents, RAG, prompt engineering) for production environments.",
+  "version": "1.0.0",
+  "supportedInterfaces": [
+    {
+      "url": "https://yokharian.dev/",
+      "protocolBinding": "JSONRPC",
+      "protocolVersion": "1.0"
+    }
+  ],
+  "capabilities": {
+    "streaming": false,
+    "pushNotifications": false,
+    "extendedAgentCard": false
+  },
+  "defaultInputModes": ["text/plain"],
+  "defaultOutputModes": ["text/plain"],
+  "skills": [
+    {
+      "id": "website-information",
+      "name": "Website Information",
+      "description": "Provides publicly available information about Sofia Escobedo, her work, and published articles on yokharian.dev.",
+      "tags": ["website", "professional-profile", "articles"]
+    }
+  ]
+}
