@@ -2,7 +2,6 @@
 import { SITE } from "@/config";
 import "@/styles/global.css";
 import "@/styles/custom.css";
-import Analytics from "@/components/Analytics.astro";
 import Context7Ask from "@/components/Context7Ask.astro";
 import { CONTEXT7_ASK_URL, CONTEXT7_SITE_KEY } from "@/config/context7";
 
@@ -148,7 +147,6 @@ const structuredData = {
   <body>
     <Context7Ask />
     <slot />
-    <Analytics />
   </body>
 </html>
 

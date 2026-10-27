@@ -1,3 +1,2 @@
-# Cloudflare Pages routing rules (parity with the vercel.json rewrites that do
-# not exist as files in the build output).
+# Cloudflare Pages routing rules.
 /sitemap.xml /sitemap-index.xml 200

@@ -1,5 +1,4 @@
-# Cloudflare Pages response headers (mirrors the security/search headers that
-# vercel.json sets today, so they survive the move to Cloudflare).
+# Cloudflare Pages response headers.
 /*
   Link: <https://context7.com/api/v2/ask?siteKey=ask_bb39d74af636f4d8ca0d98b9>; rel="search"; type="text/plain"; title="Search yokharian.dev"
   X-Content-Type-Options: nosniff

@@ -1,6 +1,6 @@
 # Sofia Escobedo's Personal Website
 
-This is the source code for my personal website, built with [Astro](https://astro.build) and deployed on [Vercel](https://vercel.com).
+This is the source code for my personal website, built with [Astro](https://astro.build) and deployed on Cloudflare Workers.
 
 ## About
 
@@ -23,7 +23,8 @@ I'm Sofia Escobedo, an iOS developer, entrepreneur, and open source contributor.
 │   ├── styles/          # Global styles and CSS
 │   └── utils/           # Utility functions
 ├── astro.config.mjs     # Astro configuration
-├── vercel.json          # Vercel deployment and CSP configuration
+├── worker/              # Cloudflare Worker for static assets and Markdown negotiation
+├── wrangler.jsonc       # Cloudflare Workers deployment configuration
 ├── package.json         # Project dependencies and scripts
 ├── tailwind.config.mjs  # Tailwind CSS configuration
 └── LICENSE              # Dual license (CC BY 4.0 + MIT)
@@ -40,7 +41,21 @@ I'm Sofia Escobedo, an iOS developer, entrepreneur, and open source contributor.
 
 ## Deployment
 
-This site is set up for easy deployment on Vercel. Just connect your GitHub repository to Vercel, and it will automatically build and deploy the site when changes are pushed.
+The production site is deployed to Cloudflare Workers using the configuration in `wrangler.jsonc`. The Worker serves the static Astro build from `dist/` and negotiates Markdown responses for requests that accept `text/markdown`.
+
+To build and preview locally:
+
+```sh
+bun install --frozen-lockfile
+bun run build
+bunx wrangler dev
+```
+
+Deploy with Wrangler after authenticating with Cloudflare:
+
+```sh
+bunx wrangler deploy
+```
 
 ## License
 
