@@ -1,9 +1,9 @@
 services:
   app:
-    image: node:lts
+    image: oven/bun:1.4.4
     ports:
       - 4321:4321
     working_dir: /app
-    command: npm run dev -- --host 0.0.0.0
+    command: bun run dev -- --host 0.0.0.0
     volumes:
       - ./:/app

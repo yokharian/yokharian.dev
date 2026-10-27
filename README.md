@@ -33,10 +33,10 @@ I'm Sofia Escobedo, an iOS developer, entrepreneur, and open source contributor.
 
 | Command                | Action                                      |
 | :--------------------- | :------------------------------------------ |
-| `npm install`          | Installs dependencies                       |
-| `npm run dev`          | Starts local dev server at `localhost:4321` |
-| `npm run build`        | Build the production site to `./dist/`      |
-| `npm run preview`      | Preview the build locally, before deploying |
+| `bun install`          | Installs dependencies                       |
+| `bun run dev`          | Starts local dev server at `localhost:4321` |
+| `bun run build`        | Build the production site to `./dist/`      |
+| `bun run preview`      | Preview the build locally, before deploying |
 
 ## Deployment
 

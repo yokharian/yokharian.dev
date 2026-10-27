@@ -13,7 +13,7 @@
       "!**/node_modules/",
       "!**/.astro/",
       "!**/public/",
-      "!**/package-lock.json",
+      "!**/bun.lock",
       "!**/*.css"
     ]
   },
