@@ -14,7 +14,20 @@
     "binding": "ASSETS",
     "html_handling": "drop-trailing-slash",
     "not_found_handling": "404-page",
-    "run_worker_first": true
+
+    // Only the routes that have a `*.md.ts` twin need the Worker; assets
+    // (/_astro/*, images, pagefind/*, rss.xml) are served without invoking it.
+    // Add a route here whenever a new `*.md.ts` endpoint is created.
+    "run_worker_first": [
+      "/",
+      "/about",
+      "/archives",
+      "/archives/*",
+      "/posts",
+      "/posts/*",
+      "/tags",
+      "/tags/*"
+    ]
   },
 
   // Required by `wrangler preview` (Workers Builds deploy command). Empty
