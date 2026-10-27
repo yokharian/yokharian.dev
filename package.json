@@ -13,11 +13,11 @@
     "add-source-metadata": "node scripts/add-source-metadata.mjs",
     "remove-tags": "node scripts/remove-tags-from-posts.mjs",
     "sync": "astro sync",
-    "lint": "biome lint src",
-    "lint:fix": "biome lint --write src",
-    "format": "biome format --write src",
-    "check": "biome check src",
-    "check:fix": "biome check --write src",
+    "lint": "biome lint src worker",
+    "lint:fix": "biome lint --write src worker",
+    "format": "biome format --write src worker",
+    "check": "biome check src worker",
+    "check:fix": "biome check --write src worker",
     "prepare": "husky"
   },
   "dependencies": {
@@ -67,7 +67,8 @@
     "cz-conventional-changelog": "^3.3.0",
     "husky": "^9.1.7",
     "lint-staged": "^17.6.0",
-    "postcss": "^8.5.31"
+    "postcss": "^8.5.31",
+    "wrangler": "^4.153.0"
   },
   "config": {
     "commitizen": {
