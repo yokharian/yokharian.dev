@@ -1,0 +1,20 @@
+# Sofia Escobedo
+
+Backend and cloud engineer with expertise in AWS serverless architecture and AI-enhanced systems (agents, RAG, prompt engineering) for production environments.
+
+## Navigation
+
+- [About](https://yokharian.dev/about.md)
+- [All posts](https://yokharian.dev/posts.md)
+- [Archives](https://yokharian.dev/archives.md)
+- [RSS feed](https://yokharian.dev/rss.xml)
+
+## Links
+
+- GitHub: [@yokharian](https://github.com/yokharian)
+- LinkedIn: [Sofia Escobedo](https://www.linkedin.com/in/yokharian)
+- Email: hi@yokharian.dev
+
+---
+
+*This is the Markdown index for [yokharian.dev](https://yokharian.dev/). Content pages are available as Markdown by appending `.md`, or by requesting `Accept: text/markdown`.*

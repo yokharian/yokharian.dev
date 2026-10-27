@@ -1,4 +1,5 @@
 ---
+
 title: "Data processing pipeline"
 description: "Cloud and backend infrastructure to measure the electrical usage and cost of industrial factories through IoT electrical sensors"
 employer: "Next-E"

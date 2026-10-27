@@ -1,12 +1,14 @@
 import { getCollection } from "astro:content";
 import type { APIRoute } from "astro";
+import { CONTEXT7_SEARCH_MARKDOWN } from "@/config/context7";
 import getSortedPosts from "@/utils/getSortedPosts";
+import { markdownResponse } from "@/utils/markdownResponse";
 
 export const GET: APIRoute = async () => {
   const posts = await getCollection("blog");
   const sortedPosts = getSortedPosts(posts);
 
-  let markdownContent = `# Archives\n\n`;
+  let markdownContent = `${CONTEXT7_SEARCH_MARKDOWN}# Archives\n\n`;
   markdownContent += `Total posts: ${sortedPosts.length}\n\n`;
 
   // Group posts by year
@@ -32,11 +34,5 @@ export const GET: APIRoute = async () => {
 
   markdownContent += `\n---\n\n[Back to Home](/index.md) | [All Posts](/posts.md)`;
 
-  return new Response(markdownContent, {
-    status: 200,
-    headers: {
-      "Content-Type": "text/markdown; charset=utf-8",
-      "Cache-Control": "public, max-age=3600",
-    },
-  });
+  return markdownResponse(markdownContent);
 };

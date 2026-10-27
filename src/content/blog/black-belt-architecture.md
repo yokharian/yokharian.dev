@@ -1,4 +1,5 @@
 ---
+
 title: "Black Belt Architecture"
 description: "demonstration of knowledge"
 employer: "XalDigital"

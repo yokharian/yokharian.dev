@@ -1,4 +1,5 @@
 ---
+
 title: "Big Data ETL migrations"
 description: "Executed multiple ETL migration projects from Oracle to AWS Glue, with strong emphasis on detailed requirement collection and comprehensive planning"
 employer: "XalDigital"
@@ -48,4 +49,3 @@ During my two years at **Xaldigital**, I had the opportunity to participate in s
 These projects allowed me to develop key skills in data flow automation, system integration, continuous deployment, and process orchestration in the cloud. It was a constant challenge, but incredibly rewarding to optimize and scale these workflows.
 
 If you want to learn more about each of these projects, feel free to click on the corresponding links.
-

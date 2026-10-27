@@ -1,4 +1,5 @@
 ---
+
 title: "Backend with JWT authorization"
 description: "Maintaining high-quality standards, I developed a REST API that integrates with an authorization system & webhook requests"
 employer: "Lighthouse Technologies"
