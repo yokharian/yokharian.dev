@@ -8,7 +8,7 @@ export const GET: APIRoute = async () => {
   const posts = await getCollection("blog");
   const tags = getUniqueTags(posts);
 
-  let markdownContent = `${CONTEXT7_SEARCH_MARKDOWN}# Tags\n\n`;
+  let markdownContent = `# Tags\n\n`;
   markdownContent += "All the tags used in posts.\n\n";
 
   for (const { tag, tagName } of tags) {
@@ -16,6 +16,7 @@ export const GET: APIRoute = async () => {
   }
 
   markdownContent += `\n---\n\n[Back to Home](/index.md)`;
+  markdownContent += `\n\n${CONTEXT7_SEARCH_MARKDOWN}`;
 
   return markdownResponse(markdownContent);
 };
