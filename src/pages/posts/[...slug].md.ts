@@ -19,7 +19,7 @@ export const GET: APIRoute = async ({ props }) => {
   const { post } = props as { post: CollectionEntry<"blog"> };
 
   // Read the raw markdown content
-  const rawContent = `${CONTEXT7_SEARCH_MARKDOWN}${post.body}`;
+  const rawContent = `${post.body}\n\n${CONTEXT7_SEARCH_MARKDOWN}`;
 
   return markdownResponse(rawContent);
 };

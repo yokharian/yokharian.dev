@@ -16,7 +16,7 @@ export const GET: APIRoute = async () => {
       .trim();
     const markdown = `---\ntitle: About\ndescription: ${JSON.stringify(description)}\n---\n\n# About\n\n${content}`;
 
-    return markdownResponse(`${CONTEXT7_SEARCH_MARKDOWN}${markdown}`);
+    return markdownResponse(`${markdown}\n\n${CONTEXT7_SEARCH_MARKDOWN}`);
   } catch {
     return new Response("Not found", { status: 404 });
   }

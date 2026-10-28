@@ -21,7 +21,7 @@ export const GET: APIRoute = async ({ params, props }) => {
   const posts = await getCollection("blog");
   const tagPosts = getPostsByTag(posts, tag!);
 
-  let markdownContent = `${CONTEXT7_SEARCH_MARKDOWN}# Tag: ${tagName}\n\n`;
+  let markdownContent = `# Tag: ${tagName}\n\n`;
   markdownContent += `All the articles with the tag "${tagName}".\n\n`;
 
   for (const post of tagPosts) {
@@ -33,6 +33,7 @@ export const GET: APIRoute = async ({ params, props }) => {
   }
 
   markdownContent += `\n---\n\n[Back to Home](/index.md) | [All Posts](/posts.md) | [Tags](/tags.md)`;
+  markdownContent += `\n\n${CONTEXT7_SEARCH_MARKDOWN}`;
 
   return markdownResponse(markdownContent);
 };

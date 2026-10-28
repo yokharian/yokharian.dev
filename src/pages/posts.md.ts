@@ -8,7 +8,7 @@ export const GET: APIRoute = async () => {
   const posts = await getCollection("blog");
   const sortedPosts = getSortedPosts(posts);
 
-  let markdownContent = `${CONTEXT7_SEARCH_MARKDOWN}# All Posts\n\n`;
+  let markdownContent = `# All Posts\n\n`;
 
   // Group posts by year
   const postsByYear = sortedPosts.reduce(
@@ -39,6 +39,7 @@ export const GET: APIRoute = async () => {
   }
 
   markdownContent += `---\n\n[Back to Home](/index.md)`;
+  markdownContent += `\n\n${CONTEXT7_SEARCH_MARKDOWN}`;
 
   return markdownResponse(markdownContent);
 };

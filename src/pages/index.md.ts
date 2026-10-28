@@ -8,7 +8,7 @@ export const GET: APIRoute = async () => {
   const posts = getSortedPosts(await getCollection("blog"));
   const recentPosts = posts.slice(0, 10);
 
-  let markdownContent = `${CONTEXT7_SEARCH_MARKDOWN}# Sofia Escobedo\n\n`;
+  let markdownContent = `# Sofia Escobedo\n\n`;
   markdownContent +=
     "AI Engineer with 5+ years building and operating production systems on AWS using Python.\n\n";
   markdownContent += "[About](/about.md) | [All posts](/posts.md) | [Archives](/archives.md)\n\n";
@@ -17,6 +17,8 @@ export const GET: APIRoute = async () => {
   for (const post of recentPosts) {
     markdownContent += `- [${post.data.title}](/posts/${post.id}.md)\n`;
   }
+
+  markdownContent += `\n\n${CONTEXT7_SEARCH_MARKDOWN}`;
 
   return markdownResponse(markdownContent);
 };
