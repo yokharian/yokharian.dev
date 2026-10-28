@@ -49,9 +49,17 @@ function markdownResponse(asset, isHead) {
 export default {
   async fetch(request, env) {
     const isGetOrHead = request.method === "GET" || request.method === "HEAD";
+    const url = new URL(request.url);
+
+    // /llms.txt is the site's Markdown index; always serve it as text/markdown.
+    if (isGetOrHead && url.pathname === "/llms.txt") {
+      const asset = await env.ASSETS.fetch(new URL("/llms.txt", url.origin));
+      if (asset.ok) {
+        return markdownResponse(asset, request.method === "HEAD");
+      }
+    }
 
     if (isGetOrHead && MARKDOWN_ACCEPT.test(request.headers.get("Accept") || "")) {
-      const url = new URL(request.url);
       const markdownPath = toMarkdownPath(url.pathname);
 
       // Don't rewrite a request that already targets Markdown.
