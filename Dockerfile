@@ -1,5 +1,5 @@
 # Base stage for building the static files
-FROM oven/bun:1.4.4 AS base
+FROM oven/bun:1.4.5 AS base
 WORKDIR /app
 
 COPY package.json bun.lock ./
